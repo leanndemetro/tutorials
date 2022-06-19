@@ -1,22 +1,12 @@
-# [Nextra](https://nextra.vercel.app)
+# Alyssa De Metro - Tutorials
 
-_Warning: this project is not production ready, API might change without notice._
+Alyssa De Metro is a Software Engineer at [Dabble Lab](https://dabblelab.com/)
 
-[![](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra&c=1)
+This purpose of this site is to display tutorials and other documents written by the aformentioned. I hope it will help in some way, and thank you for visiting!
 
-**Nextra** is a [Next.js](https://nextjs.org) and [MDX](https://mdxjs.com) powered, no-code site generator.
+For more information regarding this site's author, please see the following links
 
-![](../../public/demo.png)
-
-## Development
-
-The code of Nextra is under the [`core`](https://github.com/shuding/nextra/tree/core) branch.
-
-## Themes
-
-- [nextra-theme-docs](https://github.com/vercel/swr-site) ([demo](https://swr.vercel.app))
-- [nextra-theme-blog](https://github.com/shuding/site) ([demo](https://shud.in))
-
----
-
-Created by [@shuding](https://github.com/shuding) and [@pacocoursey](https://github.com/pacocoursey) at [Vercel](https://vercel.com). Released under the MIT license.
+- Portfolio [alyssademetro.vercel.app](https://alyssademetro.vercel.app)
+- GitHub [@leanndemetro](https://github.com/leanndemetro)
+- LinkedIn [@alyssademetro](https://linkedin.com/alyssademetro)
+- Email [demetroalyssa@gmail.com](mailto:alyssademetro@gmail.com)

@@ -8,5 +8,5 @@ For more information regarding this site's author, please see the following link
 
 - Portfolio [alyssademetro.vercel.app](https://alyssademetro.vercel.app)
 - GitHub [@leanndemetro](https://github.com/leanndemetro)
-- LinkedIn [@alyssademetro](https://linkedin.com/alyssademetro)
+- LinkedIn [@alyssademetro](https://linkedin.com/in/alyssademetro)
 - Email [demetroalyssa@gmail.com](mailto:demetroalyssa@gmail.com)

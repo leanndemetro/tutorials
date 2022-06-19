@@ -4,14 +4,14 @@ date: 2021/10/13
 description: Using Nextauth.js to create login functionality via Github
 tag: tutorial, next-auth.js
 author: Alyssa De Metro
-src: ../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-1.jpeg
+src: ../../public/github-auth-in-nextjs/github-auth-in-nextjs-1.jpeg
 ---
 
-Creating login functionality within a Next.js application using the NextAuth.js Github provider.
+![](../../public/github-auth-in-nextjs/github-auth-in-nextjs-1.jpeg)
 
-![](../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-1.jpeg)
+# Creating login functionality within a Next.js application using the NextAuth.js Github provider.
 
-Today were going to walk through the steps to create login functionality within a Next.js application using the Next-Auth.js Github provider.
+### Today were going to walk through the steps to create login functionality within a Next.js application using the Next-Auth.js Github provider.
 
 For a more detailed walkthrough, please view my video tutorial [here](https://www.loom.com/share/017f055a149e4fe49f810af0c040de93)
 
@@ -19,7 +19,8 @@ The easiest way to get started is by cloning the Next-Auth-Example repository pr
 
 
 Once you have cloned the repository to your desired directory, open it within your preferred text editor, open the integrated terminal within your file's root directory, and run the code:
-```
+
+```ssh
 npm install
 ```
 
@@ -44,19 +45,19 @@ SECRET=456ce5acdcec2819034320cf2d2221b2
 
 Now, navigate to [Github](https://github.com/) and click on settings
 
-![](../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-2.jpeg)
+![](../../public/github-auth-in-nextjs/github-auth-in-nextjs-2.jpeg)
 
 Then, navigate to developer settings
 
-![](../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-3.jpeg)
+![](../../public/github-auth-in-nextjs/github-auth-in-nextjs-3.jpeg)
 
 From there, navigate to Oauth apps, and then select new Oauth app, fill out the form as follows, and register your application:
 
-![](../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-4.jpeg)
+![](../../public/github-auth-in-nextjs/github-auth-in-nextjs-4.jpeg)
 
 From the next page, copy the Client Id and paste it in as the value of GITHUB_ID, and generate a new Client Secret, copy and paste it as the value of GITHUB_SECRET
 
-![](../../public/posts/github-auth-in-nextjs/github-auth-in-nextjs-5.jpeg)
+![](../../public/github-auth-in-nextjs/github-auth-in-nextjs-5.jpeg)
 
 The values below are mock values, but this is an example of what your .env.local file should look like.
 
@@ -74,9 +75,9 @@ Delete all providers within this file other than the Github provider, remove the
 ```javascript
   import NextAuth from "next-auth"
   import Providers from "next-auth/providers"
-export default NextAuth(\{
+export default NextAuth({
     providers: [
-      Providers.GitHub(\{
+      Providers.GitHub({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
@@ -90,23 +91,23 @@ export default NextAuth(\{
 
   ```javascript
       secret = process.env.SECRET,
-     encode: async (\{ secret, token }) => \{
-        const jwtClaims = \{
+     encode: async ({ secret, token }) => {
+        const jwtClaims = {
           "sub": token.id,
           "name": token.name,
           "email": token.email,
           "iat": Date.now() / 1000,
           "exp": Math.floor(Date.now() / 1000) + (24 * 60 * 60),
-          "https://hasura.io/jwt/claims": \{
+          "https://hasura.io/jwt/claims": {
             "x-hasura-allowed-roles": ["user"],
             "x-hasura-default-role": "user",
             "x-hasura-user-id": token.id,
           }}
-       const encodedToken = jwt.sign(jwtClaims, secret, \{ algorithm: 'HS256' });
+       const encodedToken = jwt.sign(jwtClaims, secret, { algorithm: 'HS256' });
         return encodedToken;
       },
-       decode: async (\{ secret, token }) => \{
-        const decodedToken = jwt.verify(token, secret, \{ algorithms: ['HS256'] });
+       decode: async ({ secret, token }) => {
+        const decodedToken = jwt.verify(token, secret, { algorithms: ['HS256'] });
         return decodedToken;
       },
   ```
@@ -116,17 +117,17 @@ Delete all redudant comments from the pages section, delete the signin comment f
 Set up the redirect url to home, write out method to get session data returned from your jwt as a promise.
 
 ```javascript
-async redirect(url, baseUrl) \{
+async redirect(url, baseUrl) {
 return "/"; },
-async session(session) \{ 
-const encodedToken = jwt.sign(token, process.env.SECRET, \{ algorithm: 'HS256' })
+async session(session) { 
+const encodedToken = jwt.sign(token, process.env.SECRET, { algorithm: 'HS256' })
 session.id = token.id;
 session.token = encodedToken;
 return Promise.resolve(session);
 },
-async jwt(token, user ) \{ 
+async jwt(token, user ) { 
 const isUserSignedIn = user ? true : false;
-if (isUserSignedIn) \{
+if (isUserSignedIn) {
 token.id = user.id;
 }
 return Promise.resolve(token);
@@ -136,7 +137,7 @@ return Promise.resolve(token);
   Remove the rest of the redundant comments, set debug to true for more verbose error codes.
 
   ```json
-  events: \{},
+  events: {},
   theme: 'light',
   debug: true,
   ```
@@ -144,21 +145,21 @@ return Promise.resolve(token);
 
    Open integrated terminal and:
     
-    ```
+    ```ssh
     npm install jsonwebtoken
     ```
     
     
   At the top of this file add:
   
-  ```
+  ```javascript
  import jwt from "jsonwebtoken"
   ```
     
 
   Now, within the integrated terminal run
 
-  ```
+  ```ssh
   npm run build
   npm run dev
   ```
